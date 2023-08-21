@@ -16,14 +16,20 @@ const handlingForms = {
     data() {
         return {
             members: window.members,
-            newMembers:{
-            
+            newMember: {
+
             }
         }
     },
-    methods:{
+
+    methods: {
         addMember: function() {
-            this.members.push(this.newMembers);
+            if (!(this.newMember.instrument && this.newMember.fname && this.newMember.lname)) {
+                alert("All fields must be filled")
+            } else {
+                this.members.push(this.newMember);
+                this.newMember = {};
+            }
         }
     }
 
